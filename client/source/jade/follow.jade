@@ -1,0 +1,11 @@
+doctype html
+html(lang='zh-cmn-Hans')
+  include ./source/jade/common/html_head
+  script.
+    $(document).ready(function () {
+      $('.code').html($.getUrlParam('code'))
+    });
+  body
+    .wapper
+      | 请使用微信登录
+      include ./source/jade/common/plate_number_keyboard

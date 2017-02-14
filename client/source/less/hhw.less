@@ -1,0 +1,258 @@
+@import "supplier";
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s
+}
+
+body {
+  background-color: @white;
+}
+
+.wapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: scroll;
+  .page {
+    height: 100%;
+    .hhw_header {
+      background-color: @orange;
+      position: relative;
+      height: @header-height;
+      img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 25px;
+      }
+      .back_button {
+        height: @header-height;
+        line-height: @header-height;
+        /* width: 60px; */
+        padding: 0 5px;
+        color: @white;
+        font-size: 18px;
+      }
+    }
+
+    .page__bd {
+      padding-bottom: @fix-foot-height;
+      .weui-cells {
+        .weui-cell {
+          .weui-cell__hd {
+            .p_logo {
+              height: 40px;
+              margin-right: 5px;
+            }
+            &.address{
+              i{
+                font-size: 18px;
+                position: relative;
+                top: -1px;
+                color: @grey;
+              }
+            }
+          }
+          .weui-cell__bd {
+            &.address {
+              font-size: 16px;
+              color: @grey;
+              padding-left: 5px;
+            }
+          }
+          .weui-cell__ft {
+            font-size: 16px;
+            &.red {
+              color: @red;
+            }
+          }
+        }
+        &.barcode_place{
+          text-align: center;
+          #barcode{
+            width: 95%;
+            margin: 0;
+            padding: 0;
+            height: auto;
+          }
+        }
+      }
+      .park_image {
+        padding: 0;
+        overflow: hidden;
+        height: 150px;
+        position: relative;
+        margin: 0;
+        .back_button {
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          z-index: 999;
+          background-color: rgba(0, 0, 0, 0.6);
+          padding: 0 12px 0 5px;
+          border-radius: 50px;
+          height: 30px;
+          line-height: 30px;
+          text-align: center;
+          i, span {
+            color: @white;
+          }
+        }
+        img {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          width: 100%;
+        }
+      }
+
+    }
+
+    .hhw_footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      z-index: 500;
+      text-align: center;
+      background-color: #f7f7fa;
+      display: flex;
+      height: @fix-foot-height;
+      line-height: @fix-foot-height;
+      span {
+        font-size: 16px;
+        color: @grey;
+        margin: auto;
+      }
+    }
+
+    &.park_list {
+      .weui-cells {
+        .weui-cell {
+          .weui-cell__bd {
+            &.base_info {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              padding: 0 5px;
+              .title {
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                span {
+                  white-space: nowrap;
+                  font-size: 18px;
+                }
+              }
+              .desc {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                span {
+                  white-space: nowrap;
+                  font-size: 14px;
+                  margin-right: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.park_detail {
+      .weui-cells {
+        .weui-cell {
+          .weui-cell__bd {
+            &.base_info {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              padding: 0 5px;
+              .title {
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                span {
+                  white-space: nowrap;
+                  font-size: 18px;
+                }
+              }
+              .desc {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                span {
+                  white-space: nowrap;
+                  font-size: 14px;
+                  margin-right: 20px;
+                }
+              }
+            }
+          }
+          .weui-cell__ft {
+            &.park_info {
+              border-left: solid 1px @light-grey;
+              padding-left: 15px;
+            }
+          }
+        }
+      }
+    }
+
+    &.order{
+      .weui-cells {
+
+      }
+
+    }
+  }
+
+  .map_wapper {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    border: solid 1px #999;
+    box-shadow: #999 0px 0px 14px;
+    .map_container {
+      overflow: hidden;
+      margin: 0;
+      position: absolute !important;
+      top: auto;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: 80%;
+      #allmap{
+        position: absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        margin:auto;
+        z-index:9999;
+      }
+    }
+    .map_close{
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      height: 40px;
+      width: 40px;
+      line-height: 44px;
+      text-align: center;
+      border-radius: 50px;
+      background-color: rgba(0,0,0,0.8);
+      color: #fff;
+      font-size: 18px;
+      z-index: 99990;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+doctype html
+html(lang='zh-cmn-Hans')
+  include ./source/jade/common/html_head_f
+  script.
+    $(document).ready(function () {
+      query_order_info()
+      $('.order .action').on('touchend', function(e) {
+        order_bill_action();
+      })
+      $(document).on('touchend', '.order .address', function(e) {
+          gen_map();
+      })
+      $(document).on('touchend', '.map_close', function(e) {
+          $('.map_wapper').fadeOut();
+          $('.back_button').show();
+      })
+    });
+  body(ontouchstart)
+    .wapper
+      .page.tabbar.js_show.order
+        include ./source/jade/common/header
+        .page__bd
+          .weui-cells.park_info
+            .weui-cell
+              .weui-cell__bd.base_info
+                .name
+                  span
+            .weui-cell.weui-cell_access.js_item
+              .weui-cell__hd
+                i.icon.icon-location
+              .weui-cell__bd.address(data-lng data-lat)
+          .weui-cells__title 订单详情
+          .weui-cells.detail(data-orderId data-carId data-parkSiteId data-needPay)
+            .weui-cell
+              .weui-cell__bd
+                span 车牌：
+                span.license_plate
+            .weui-cell
+              .weui-cell__bd
+                div
+                  span.title 已付款：
+                  span.price
+                div
+                  span.title 开始时间：
+                  span.start_time
+                div
+                  span.title 可停车到：
+                  span.end_time
+                div
+                  span.title 还需缴费：
+                  span.need_pay
+          .weui-btn-area.action
+            a.weui-btn.weui-btn_primary 结算出场
+          //- .weui-btn-area
+          //-   a.weui-btn(href='bill.html') 绿色通道
+          include ./source/jade/common/tips
+          .weui-cells.barcode_place
+            svg#barcode
+          .weui-cells.instruction
+        include ./source/jade/common/footer

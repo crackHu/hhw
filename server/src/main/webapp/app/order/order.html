@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../common.css" />
+
+<script src="../common.js"></script>
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+	订单接口测试：
+	<br /> 默认token:
+	<input id="token" value="7C03061A9BE54B75A6D4A53641511644">
+	<br /> 接口：
+	<input id="url"
+		value="http://172.16.2.117:10086/hhw/v2/order/getOrderByToken">
+	<br /> 页码(实际+1) page:
+	<input id="page" value="0">
+	<br /> 条数 size：
+	<input id="size" value="10">
+
+
+	<button onclick="post()">请求</button>
+
+	返回结果：
+	<br />
+
+	<pre id="result">
+	</pre>
+
+</body>
+
+<script type="text/javascript">
+	post = function() {
+		$.ajax({
+			url : $("#url").val(),
+			data : {
+				token : $("#token").val(),
+				page : $("#page").val(),
+				size : $("#size").val()
+			},
+			success : function(data) {
+				$('#result').html(jsonhtml(data));
+			}
+		});
+
+	}
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description">
+    <title>猴好位</title>
+    <link href="../vender/css/weui.min.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/hhw.css" rel="stylesheet" type="text/css" media="all">
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="../vender/js/jquery-3.1.1.min.js"></script>
+    <script src="../vender/js/jquery.cookie.min.js"></script>
+    <script src="../vender/js/weui.min.js"></script>
+    <script src="../vender/js/JsBarcode.code39.min.js"></script>
+    <script src="../vender/js/vconsole.min.js"></script>
+    <script src="js/hhw.js"></script>
+  </head>
+  <script>
+    $(document).ready(function () {
+      query_parking_detail();
+    });
+  </script>
+  <body ontouchstart>
+    <div class="wapper">
+      <div class="page tabbar js_show park_detail">
+        <!--include ./source/jade/common/header_b-->
+        <div class="page__bd">
+          <div class="weui-cells__title park_image">
+            <div class="back_button"><i class="icon icon-back"></i><span>返回</span></div>
+          </div>
+          <div class="weui-cells park_info"></div>
+          <div class="weui-cells__title">选择车辆</div>
+          <div class="weui-cells weui-cells_radio cars"></div>
+          <div class="weui-btn-area action"><a href="order.html" class="weui-btn weui-btn_primary">立即 Hold 住车位</a></div>
+          <div class="weui-cells instruction"></div>
+        </div>
+        <div class="hhw_footer"><span>广州伊琪聚信息科技有限责任公司</span></div>
+      </div>
+    </div>
+  </body>
+</html>

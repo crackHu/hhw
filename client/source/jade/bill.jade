@@ -1,0 +1,61 @@
+doctype html
+html(lang='zh-cmn-Hans')
+  include ./source/jade/common/html_head_f
+  script.
+    $(document).ready(function () {
+      query_bill_info()
+      $('.bill .action').on('touchend', function(e) {
+        extend_parking_action();
+      })
+    });
+  body(ontouchstart)
+    .wapper
+      .page.tabbar.js_show.bill(data-orderId data-carId data-parkSiteId data-needPay)
+        include ./source/jade/common/header
+        .page__bd
+          .weui-cells.park_info
+            .weui-cell
+              .weui-cell__bd.base_info
+                .name
+                  span.park_name 
+            .weui-cell.weui-cell_access.js_item
+              .weui-cell__bd.license_plate 
+                span 车牌：
+                span.license_plate 
+          .weui-cells.bill_info
+            .weui-cell
+              .weui-cell__bd
+                div
+                  span 已缴费：
+                  span.total_price 
+                div
+                  span (包含预缴费：
+                  span.first_price 
+                  span )
+                div
+                  span 请在 
+                  span.leave_time 
+                  span  前离场
+          .weui-btn-area.action
+            a.weui-btn.weui-btn_primary 延长停车时间
+          .weui-cells.bill_detail
+            .weui-cell
+              .weui-cell__bd
+                div 缴费详情
+                div
+                  span 开始时间：
+                  span.start_time  
+                div
+                  span 停车时长：
+                  span.park_time  
+                div 
+                  span 预缴费：
+                  span.first_price 
+                div
+                  span 补缴费：
+                  span.add_price 
+          include ./source/jade/common/tips
+          .weui-cells.barcode_place
+            svg#barcode
+          
+        include ./source/jade/common/footer

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../common.css" />
+
+<script src="../common.js"></script>
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+	订单支付接口测试：
+	<br /> 默认token:
+	<input id="token" value="7C03061A9BE54B75A6D4A53641511644">
+	<br /> 接口：
+	<input id="url"
+		value="http://172.16.2.117:10086/hhw/v2/order/placeOrder">
+	<br /> 订单 orderId:
+	<input id="orderId" value="">
+	<br /> 车 carId：
+	<input id="carId" value="11">
+	<br /> 停车场 id：
+	<input id="parkSiteId" value="11">
+	<br /> 车位类型 catalog：
+	<input id="catalog" value="11">
+	<br /> 首次支付的价格 price：
+	<input id="price" value="11">
+	
+
+
+	<button onclick="post()">请求</button>
+
+	返回结果：
+	<br />
+
+	<pre id="result">
+	</pre>
+
+</body>
+
+<script type="text/javascript">
+	post = function() {
+		$.ajax({
+			url : $("#url").val(),
+			data : {
+				token : $("#token").val(),
+				orderId : $("#orderId").val(),
+				carId : $("#carId").val(),
+				parkSiteId : $("#parkSiteId").val(),
+				catalog : $("#catalog").val(),
+				price : $("#price").val()
+			},
+			success : function(data) {
+				$('#result').html(jsonhtml(data));
+			}
+		});
+
+	}
+</script>
+</html>

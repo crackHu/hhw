@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description">
+    <title>猴好位</title>
+    <link href="../vender/css/weui.min.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/hhw.css" rel="stylesheet" type="text/css" media="all">
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="../vender/js/jquery-3.1.1.min.js"></script>
+    <script src="../vender/js/jquery.cookie.min.js"></script>
+    <script src="../vender/js/weui.min.js"></script>
+    <script src="../vender/js/JsBarcode.code39.min.js"></script>
+    <script src="../vender/js/vconsole.min.js"></script>
+    <script src="js/hhw.js"></script>
+  </head>
+  <script>
+    $(document).ready(function () {
+      query_bill_info()
+      $('.bill .action').on('touchend', function(e) {
+        extend_parking_action();
+      })
+    });
+  </script>
+  <body ontouchstart>
+    <div class="wapper">
+      <div data-orderId data-carId data-parkSiteId data-needPay class="page tabbar js_show bill">
+        <div class="page__hd hhw_header"><img src="../images/hhw-logo.svg" alt=""></div>
+        <div class="page__bd">
+          <div class="weui-cells park_info">
+            <div class="weui-cell">
+              <div class="weui-cell__bd base_info">
+                <div class="name"><span class="park_name"> </span></div>
+              </div>
+            </div>
+            <div class="weui-cell weui-cell_access js_item">
+              <div class="weui-cell__bd license_plate"> <span>车牌：</span><span class="license_plate"> </span></div>
+            </div>
+          </div>
+          <div class="weui-cells bill_info">
+            <div class="weui-cell">
+              <div class="weui-cell__bd">
+                <div><span>已缴费：</span><span class="total_price"> </span></div>
+                <div><span>(包含预缴费：</span><span class="first_price"> </span><span>)</span></div>
+                <div><span>请在 </span><span class="leave_time"> </span><span> 前离场</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="weui-btn-area action"><a class="weui-btn weui-btn_primary">延长停车时间</a></div>
+          <div class="weui-cells bill_detail">
+            <div class="weui-cell">
+              <div class="weui-cell__bd">
+                <div>缴费详情</div>
+                <div><span>开始时间：</span><span class="start_time"> </span></div>
+                <div><span>停车时长：</span><span class="park_time"> </span></div>
+                <div> <span>预缴费：</span><span class="first_price"> </span></div>
+                <div><span>补缴费：</span><span class="add_price"> </span></div>
+              </div>
+            </div>
+          </div>
+          <div class="weui-cells tips">
+            <div class="weui-cell">
+              <div class="weui-cell__bd">
+                <div>温馨提示</div>
+                <p>1，预付停车费后，请尽快到场停车；</p>
+                <p>2，近场停车时，请按正常方式取卡停车；</p>
+                <p>3，取车前先完成停车结算，并向停车场收费员出示支付凭证。</p>
+                <p>4，如无法缴费，请向收费员出示条形码</p>
+                <p>5，如果条形码都无法出示，则使用车辆牌号作为缴费凭证</p>
+              </div>
+            </div>
+          </div>
+          <div class="weui-cells barcode_place">
+            <svg id="barcode"></svg>
+          </div>
+        </div>
+        <div class="hhw_footer"><span>广州伊琪聚信息科技有限责任公司</span></div>
+      </div>
+    </div>
+  </body>
+</html>

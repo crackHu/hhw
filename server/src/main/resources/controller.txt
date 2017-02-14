@@ -1,0 +1,60 @@
+package com.vds.app.sms.controller;
+
+import javax.inject.Inject;
+
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.vds.app.exception.Msg;
+import com.vds.app.exception.MyException;
+import com.vds.app.sms.model.Entitys;
+import com.vds.app.sms.service.SmsCpService;
+
+@RestController
+@RequestMapping("/v2/admin/modules/url")
+public class AdminEntitysController {
+
+	@Inject
+	private SmsCpService smsCpService;
+
+
+	@RequestMapping("update")
+	public Object update(Entitys obj) throws MyException {
+
+		return smsCpService.modify(obj);
+	}
+
+	@RequestMapping("delById")
+	public Object delById(String id) throws MyException {
+
+		Entitys obj = smsCpService.findOne(id);
+		if (null == obj) {
+			return Msg.MsgError("id error");
+		}
+		return smsCpService.remove(obj);
+	}
+
+	@RequestMapping("showById")
+	public Object showById(String id) throws MyException {
+
+		return smsCpService.findByOne(id);
+	}
+
+	@RequestMapping("findByPage")
+	public Object findByPage(Pageable pageable) {
+		return smsCpService.findAll(pageable);
+	}
+
+	@RequestMapping("editByEntity")
+	public Object editByEntity(Entitys obj) throws MyException {
+		return smsCpService.modify(obj);
+	}
+
+	@RequestMapping("addEntity")
+	public Object addEntity(Entitys obj) throws MyException {
+
+		return smsCpService.add(obj);
+	}
+
+}

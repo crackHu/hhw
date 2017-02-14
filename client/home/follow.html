@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description">
+    <title>猴好位</title>
+    <link href="../vender/css/weui.min.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/hhw.css" rel="stylesheet" type="text/css" media="all">
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="../vender/js/jquery-3.1.1.min.js"></script>
+    <script src="../vender/js/jquery.cookie.min.js"></script>
+    <script src="js/hhw.js"></script>
+  </head>
+  <script>
+    $(document).ready(function () {
+      $('.code').html($.getUrlParam('code'))
+    });
+  </script>
+  <body>
+    <div class="wapper">请使用微信登录
+      <div class="pn_wapper hide">
+        <div class="pn_pad pn_1">
+          <dl class="pn_row">
+            <dd value="京" class="key">京</dd>
+            <dd value="津" class="key">津</dd>
+            <dd value="冀" class="key">冀</dd>
+            <dd value="晋" class="key">晋</dd>
+            <dd value="蒙" class="key">蒙</dd>
+            <dd value="辽" class="key">辽</dd>
+            <dd value="吉" class="key">吉</dd>
+            <dd value="黑" class="key">黑</dd>
+            <dd value="沪" class="key">沪</dd>
+            <dd value="苏" class="key">苏</dd>
+          </dl>
+          <dl class="pn_row">
+            <dd value="浙" class="key">浙</dd>
+            <dd value="皖" class="key">皖</dd>
+            <dd value="闽" class="key">闽</dd>
+            <dd value="赣" class="key">赣</dd>
+            <dd value="鲁" class="key">鲁</dd>
+            <dd value="豫" class="key">豫</dd>
+            <dd value="鄂" class="key">鄂</dd>
+            <dd value="湘" class="key">湘</dd>
+            <dd value="粤" class="key">粤</dd>
+          </dl>
+          <dl class="pn_row">
+            <dd value="桂" class="key">桂</dd>
+            <dd value="琼" class="key">琼</dd>
+            <dd value="渝" class="key">渝</dd>
+            <dd value="川" class="key">川</dd>
+            <dd value="贵" class="key">贵</dd>
+            <dd value="云" class="key">云</dd>
+            <dd value="藏" class="key">藏</dd>
+          </dl>
+          <dl class="pn_row">
+            <dd value="陕" class="key">陕</dd>
+            <dd value="甘" class="key">甘</dd>
+            <dd value="青" class="key">青</dd>
+            <dd value="宁" class="key">宁</dd>
+            <dd value="新" class="key">新</dd>
+            <dd value="" class="key delete_key"><i class="icon icon-delete"></i></dd>
+          </dl>
+        </div>
+        <div class="pn_pad pn_2">
+          <dl class="pn_row">
+            <dd value="1" class="key num_key">1</dd>
+            <dd value="2" class="key num_key">2</dd>
+            <dd value="3" class="key num_key">3</dd>
+            <dd value="4" class="key num_key">4</dd>
+            <dd value="5" class="key num_key">5</dd>
+            <dd value="6" class="key num_key">6</dd>
+            <dd value="7" class="key num_key">7</dd>
+            <dd value="8" class="key num_key">8</dd>
+            <dd value="9" class="key num_key">9</dd>
+            <dd value="0" class="key num_key">0</dd>
+          </dl>
+          <dl class="pn_row">
+            <dd value="Q" class="key letter_key">Q</dd>
+            <dd value="W" class="key letter_key">W</dd>
+            <dd value="E" class="key letter_key">E</dd>
+            <dd value="R" class="key letter_key">R</dd>
+            <dd value="T" class="key letter_key">T</dd>
+            <dd value="Y" class="key letter_key">Y</dd>
+            <dd value="U" class="key letter_key">U</dd>
+            <dd value="P" class="key letter_key">P</dd>
+            <dd value="港" class="key last_key">港</dd>
+            <dd value="澳" class="key last_key">澳</dd>
+          </dl>
+          <dl class="pn_row">
+            <dd value="A" class="key letter_key">A</dd>
+            <dd value="S" class="key letter_key">S</dd>
+            <dd value="D" class="key letter_key">D</dd>
+            <dd value="F" class="key letter_key">F</dd>
+            <dd value="G" class="key letter_key">G</dd>
+            <dd value="H" class="key letter_key">H</dd>
+            <dd value="J" class="key letter_key">J</dd>
+            <dd value="K" class="key letter_key">K</dd>
+            <dd value="L" class="key letter_key">L</dd>
+            <dd value="学" class="key last_key">学</dd>
+          </dl>
+          <dl class="pn_row">
+            <dd value="Z" class="key letter_key">Z</dd>
+            <dd value="X" class="key letter_key">X</dd>
+            <dd value="C" class="key letter_key">C</dd>
+            <dd value="V" class="key letter_key">V</dd>
+            <dd value="B" class="key letter_key">B</dd>
+            <dd value="N" class="key letter_key">N</dd>
+            <dd value="M" class="key letter_key">M</dd>
+            <dd value="" class="key delete_key"><i class="icon icon-delete"></i></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

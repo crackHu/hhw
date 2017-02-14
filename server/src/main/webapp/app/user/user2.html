@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../common.css" />
+
+<script src="../common.js"></script>
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+	用户接口测试：
+	<br /> 默认token:
+	<input id="token" value="7C03061A9BE54B75A6D4A53641511644">
+	<br /> 接口：
+	<input id="url"
+		value="http://172.16.2.117:10086/hhw/v2/other/car/delCarByToken">
+	<br /> 車輛id carId:
+	<input id="id" value="1">
+
+
+	<button onclick="post()">请求</button>
+
+	返回结果：
+	<br />
+
+	<pre id="result">
+	</pre>
+
+</body>
+
+<script type="text/javascript">
+	post = function() {
+		$.ajax({
+			url : $("#url").val(),
+			data : {
+				token : $("#token").val(),
+				carId : $("#id").val()
+			},
+			success : function(data) {
+				$('#result').html(jsonhtml(data));
+			}
+		});
+
+	}
+</script>
+</html>

@@ -1,0 +1,20 @@
+doctype html
+html(lang='zh-cmn-Hans')
+  include ./source/jade/common/html_head_f
+  script.
+    $(document).ready(function () {
+      // 添加判断当前用户是否存在订单, 存在订单自动跳转
+      var existed = check_user_order_status();
+      if (!existed) {
+          query_parking_list();
+        }
+    });
+  body(ontouchstart)
+    .wapper
+      .page.tabbar.js_show.park_list
+        include ./source/jade/common/header
+        .page__bd
+          .weui-cells__title
+          .weui-cells.container
+          include ./source/jade/common/tips
+        include ./source/jade/common/footer

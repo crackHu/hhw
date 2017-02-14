@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description">
+    <title>猴好位</title>
+    <link href="../vender/css/weui.min.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/hhw.css" rel="stylesheet" type="text/css" media="all">
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="../vender/js/jquery-3.1.1.min.js"></script>
+    <script src="../vender/js/jquery.cookie.min.js"></script>
+    <script src="../vender/js/weui.min.js"></script>
+    <script src="../vender/js/JsBarcode.code39.min.js"></script>
+    <script src="http://api.map.baidu.com/api?v=2.0&amp;ak=m3rBRpWms6GwGwTgsvwX94ERDdPSG8vB"></script>
+    <script src="js/hhw.js"></script>
+  </head>
+  <script>
+    $(document).ready(function () {
+      query_order_info()
+      $('.order .action').on('touchend', function(e) {
+        order_bill_action();
+      })
+      $(document).on('touchend', '.order .address', function(e) {
+          gen_map();
+      })
+      $(document).on('touchend', '.map_close', function(e) {
+          $('.map_wapper').fadeOut();
+          $('.back_button').show();
+      })
+    });
+  </script>
+  <body ontouchstart>
+    <div class="wapper">
+      <div class="page tabbar js_show order">
+        <div class="page__hd hhw_header"><img src="../images/hhw-logo.svg" alt=""></div>
+        <div class="page__bd">
+          <div class="weui-cells park_info">
+            <div class="weui-cell">
+              <div class="weui-cell__bd base_info">
+                <div class="name"><span></span></div>
+              </div>
+            </div>
+            <div class="weui-cell weui-cell_access js_item">
+              <div class="weui-cell__hd"><i class="icon icon-location"></i></div>
+              <div data-lng data-lat class="weui-cell__bd address"></div>
+            </div>
+          </div>
+          <div class="weui-cells__title">订单详情</div>
+          <div data-orderId data-carId data-parkSiteId data-needPay class="weui-cells detail">
+            <div class="weui-cell">
+              <div class="weui-cell__bd"><span>车牌：</span><span class="license_plate"></span></div>
+            </div>
+            <div class="weui-cell">
+              <div class="weui-cell__bd">
+                <div><span class="title">已付款：</span><span class="price"></span></div>
+                <div><span class="title">开始时间：</span><span class="start_time"></span></div>
+                <div><span class="title">可停车到：</span><span class="end_time"></span></div>
+                <div><span class="title">还需缴费：</span><span class="need_pay"></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="weui-btn-area action"><a class="weui-btn weui-btn_primary">结算出场</a></div>
+          <div class="weui-cells tips">
+            <div class="weui-cell">
+              <div class="weui-cell__bd">
+                <div>温馨提示</div>
+                <p>1，预付停车费后，请尽快到场停车；</p>
+                <p>2，近场停车时，请按正常方式取卡停车；</p>
+                <p>3，取车前先完成停车结算，并向停车场收费员出示支付凭证。</p>
+                <p>4，如无法缴费，请向收费员出示条形码</p>
+                <p>5，如果条形码都无法出示，则使用车辆牌号作为缴费凭证</p>
+              </div>
+            </div>
+          </div>
+          <div class="weui-cells barcode_place">
+            <svg id="barcode"></svg>
+          </div>
+          <div class="weui-cells instruction"></div>
+        </div>
+        <div class="hhw_footer"><span>广州伊琪聚信息科技有限责任公司</span></div>
+      </div>
+    </div>
+  </body>
+</html>

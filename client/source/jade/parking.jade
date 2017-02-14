@@ -1,0 +1,42 @@
+doctype html
+html(lang='zh-cmn-Hans')
+  include ./source/jade/common/html_head_f
+  script.
+    $(document).ready(function () {
+      // wx_config1()
+      query_parking_detail();
+      $('.park_detail .action').on('touchend', function(e) {
+        parking_action();
+      })
+      $(document).on('touchend', '.park_detail .add_car', function(e) {
+          parking_add_car();
+      })
+      $(document).on('touchend', '.park_info .address', function(e) {
+          gen_map();
+      })
+      $(document).on('touchend', '.map_close', function(e) {
+          $('.map_wapper').fadeOut();
+          $('.back_button').show();
+      })
+
+    });
+  body(ontouchstart)
+    .wapper
+      include ./source/jade/common/plate_number_keyboard
+      .page.tabbar.js_show.park_detail
+        //include ./source/jade/common/header_b
+        .page__bd
+          .weui-cells__title.park_image
+            .back_button
+              i.icon.icon-back
+              span 返回
+          .weui-cells.park_info
+          .weui-cells__title  选择车辆
+          .weui-cells.weui-cells_radio.cars
+          .weui-btn-area.action
+            a.weui-btn.weui-btn_primary 立即 Hold 住车位
+          //- .weui-btn-area
+          //-   a.weui-btn(href='order.html') 绿色通道
+          include ./source/jade/common/tips
+          .weui-cells.instruction
+        include ./source/jade/common/footer
